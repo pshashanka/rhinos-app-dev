@@ -24,6 +24,28 @@ export default class MainView extends React.Component {
     ]
   }
 
+  componentWillMount () {
+    this.fetchData()
+  }
+
+  fetchData = () => {
+    // (async() => {
+    //     try {
+    //       let response = await fetch('/mockData/test.json')
+    //       let responseJson = await response.json()
+    //       console.log(responseJson)
+    //       return responseJson.movies
+    //     } catch(error) {
+    //       console.error(error)
+    //     }
+    //   })()
+
+    fetch('/mockData/test.json')
+      .then(resp => console.log(resp))
+      .catch(err => console.error(err))
+
+  }
+
   onTabChange = (index) => {
     this.setState({ index })
   }
